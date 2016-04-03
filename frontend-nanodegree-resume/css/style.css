@@ -11,7 +11,22 @@ h5,
 h6 {
   padding:0;
   margin:0;
-  font-family: 'Mate SC', serif;
+  font-family: 'Palanquin', sans-serif;
+}
+
+body {
+  background: url('images/mtFuji.jpg') no-repeat 50% 50% fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #e9993d, #206ba4, #e9993d);
 }
 
 .clear-fix {
@@ -24,9 +39,13 @@ h6 {
   padding: 0 5%;
 }
 
+.project-entry {
+  max-width: 50%;
+  font-size: 1.25em;
+}
+
 h1 {
   font-size: 40px;
-  color: #f5a623;
   line-height: 48px;
   display: inline;
 }
@@ -34,7 +53,6 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
   line-height: 29px;
   padding: 10px;
 }
@@ -54,17 +72,115 @@ h4 {
 }
 
 h2,
-h3,
 h4,
 h5 {
   padding:10px 5%;
 
 }
+/**--intro--**/
 
+#introContainer {
+  z-index: 100;
+  text-align: center;
+  margin-top: 25%;
+  margin-bottom: 30%;
+  max-width: 100%;
+}
+
+
+#introName {
+  margin: 0.8%;
+}
+
+
+#introRole {
+  margin: 1.5%;
+  padding: 10px;
+  color: #999;
+}
+
+/**--**/
+/**--scroll--**/
+
+#scroll {
+  margin-top: 20%;
+  max-width: 100px;
+  -webkit-border-radius: 50%;
+   border-radius: 50%;
+}
+
+/**--**/
+
+/*--Navigation--*/
+
+#nav {
+  background-color: #4c88b6;
+  height: 22px;
+  max-width: 100%;
+}
+
+.topMenu {
+  color: #aaaaaa;
+}
+
+/*--*/
+/*--bio--*/
+
+.biopic {
+  float: left;
+  padding: 10px 30px 10px 10px;
+  width: 200px;
+  display: none;
+}
+
+#header {
+  background-color: #206ba4;
+  max-width: 100%;
+}
+
+.welcome-message {
+  font-style: italic;
+  font-size: 18px;
+  color: #f3f3f3;
+  line-height: 28px;
+}
+
+.firstName {
+  font-size: 3em;
+  color:  #e9993d;
+}
+
+.roller {
+  font-size: 1.3em;
+  color:  #e9993d;
+}
+
+#contactLink {
+  display: inline;
+  color: #fff;
+}
+
+#topContacts {
+  font-size: 1em;
+  padding-bottom: 20px;
+}
+
+/*--*/
+/*--workExP--*/
+
+#workExperience {
+  background-color: rgba(170,170,170,.8);
+}
+
+/*--*/
+/*--EDU--*/
+
+#education {
+  background-color: #206ba4;
+}
 
 .date-text {
   font-style: italic;
-  font-size: 14px;
   color: #999;
   line-height: 16px;
   float: left;
@@ -72,7 +188,6 @@ h5 {
 
 .location-text {
   font-style: italic;
-  font-size: 14px;
   color: #999;
   line-height: 16px;
   float: right;
@@ -85,22 +200,28 @@ p {
   line-height: 21px;
 }
 
+h3 a {
+  margin-top: 0;
+}
+
 a {
-  color: #1199c3;
+  color: #fec872;
   text-decoration: none;
   margin-top: 10px;
   display: block;
 }
 
-.welcome-message {
-  font-style: italic;
-  font-size: 18px;
-  color: #f3f3f3;
-  line-height: 28px;
+a:link {
+  text-decoration: none;
+}
+
+
+a:hover {
+  text-decoration: underline;
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color:  #e9993d;
   display: none;
 }
 
@@ -109,7 +230,7 @@ a {
 }
 
 .orange-text {
-  color: #f5ae23;
+  color:  #e9993d;
 }
 
 .white-text {
@@ -127,9 +248,16 @@ a {
   background-color: #4a4a4a;
 }
 
-/* TODO: Replace with image later */
-#header {
-  background-color: #484848;
+.cream {
+  background-color: #fccb8d;
+}
+
+.creamFont {
+  color: #fff;
+}
+
+.brogreen {
+  background-color: #c3b690;
 }
 
 .flex-box {
@@ -139,21 +267,15 @@ a {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
+  line-height: 30px;
 }
 
 .center-content {
-  padding: 2.5% 5%;
+  padding: 4% 5%;
 }
 
 ul {
   list-style-type: none;
-}
-
-.biopic {
-  float: left;
-  padding: 10px;
-  width: 200px;
-  display: none;
 }
 
 img {
@@ -162,12 +284,26 @@ img {
 }
 
 span {
-  padding: 5px;
+  padding: 10px;
 }
 
 #lets-connect {
   text-align: center;
 }
+/*--map--*/
+
+#map {
+  display: block;
+  height: 100%;
+  margin: 0 5%;
+}
+
+#mapDiv {
+  height: 400px;
+  width: 100%;
+  padding-bottom: 5%;
+}
+/*--*/
 
 /* Media queries to handle various device widths */
 
@@ -193,23 +329,34 @@ span {
   .welcome-message {
     display: none;
   }
-}
-
-#map {
-  display: block;
-  height: 100%;
-  margin: 0 5%;
-}
-
-#mapDiv {
-  height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
+  .center-content {
+    padding-top: 7%;
+  }
+  .flex-box {
+    padding: 5px;
+  }
+  .roller {
+    display: flex;
+  }
 }
 
 @media only screen and (min-width: 750px) {
   #skills-h3,
   .biopic {
     display: block;
+  }
+  #introName {
+    font-size: 80px;
+  }
+  #introRole {
+    font-size: 40px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  #nav {
+    display: none;
+  }
+  #mapDiv {
+    display: none;
   }
 }

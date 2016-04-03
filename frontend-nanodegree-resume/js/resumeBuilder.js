@@ -17,14 +17,16 @@ var bio = {
         "mobile" : "(636)544-2028",
         "email" : "harrisonj.jesse@gmail.com",
         "twitter" : "@jj_harrison",
-        "location" : "St. Louis, MO"
+        "location" : "St. Louis, MO",
+        "linkedin" : "https://www.linkedin.com/in/harrisonjesse",
+        "github" : "https://github.com/allons-y10"
     },
-    "welcomeMessage" : "This is my site. Feel free to get lost in my work",
+    "welcomeMessage" : "Welcome to my site. Yes, it is all about me. Feel free to browse around the site and find out all the things you need to know to hire me. One thing to know is I love adventure. I incorporate that into my work. I'm not afraid to learn new things. Infact, I enjoy learning. I've learned a variety of skills including audio/video engineering and web site design. What do I bring to the table you ask? Well along with my positive atmosphere I bring imagination and thoughtfulness. Thanks for stopping by!",
     "age" : 28,
     "skills" : [
-    "Learning", "Design", "JS", "HTML & CSS"
+    "Learning", "Design", "JS", "HTML & CSS", "Adaptability", "MS Suite", "Protools", "Final Cut Pro", "Avid Media Composer", "Photshop", "Illustrator", ""
     ],
-    "image" : "images/fry.jpg"
+    "image" : "images/me.jpg"
 
 };
 
@@ -35,18 +37,25 @@ var bio = {
 var work = {
     "jobs": [
     {
-        "employer": "Hollywood Casino",
-        "title": "Facilities Coordinator",
-        "dates": "2007-present",
-        "location": "Maryland Heights, MO",
-        "description": "Helping the department plan projects, budgets, and inventory."
+        "employer" : "Hollywood Casino",
+        "title" : "Facilities Coordinator",
+        "dates" : "2007-present",
+        "location" : "Maryland Heights, MO",
+        "description" : "Coordinating vendors, placing work orders, sourcing materials and vendors, General and Preventative maintenance, lawn care, forklift operations, snow removal, Project planning, meeting deadlines in a timely manner, event planning, and help overseeing the budget, Managing a small group of employees, coaching and training fellow employees, Daily interaction with clients, phone skills, and ability to work well with other employees"
     },
     {
-        "employer": "Journey Church",
-        "title": "Creative Media Director",
-        "dates": "2009-2011",
-        "location": "Troy, MO",
-        "description": "Implement overall brand, videos, audio projects, and live performance managment."
+        "employer" : "Self-Employed",
+        "title" : "Freelance Media Designer",
+        "dates" : "2012-present",
+        "location" : "St. Louis, MO",
+        "description" : "Logo design, ability to make promotional videos, film (exp. With HD camera) and photo editing, Ability to connect with clients to help develop what they want/have envisioned, Branding and creative media"
+    },
+    {
+        "employer" : "Journey Church",
+        "title" : "Creative Media Director",
+        "dates" : "2009-2011",
+        "location" : "Troy, MO",
+        "description" : "Lead creative sessions, coordinate events, direct and produce live performances on a weekly basis, Develop the brand for the church, illustrations, podcasts, and work with social media platforms ,Film, edit, and direct promotional videos, and record live music artists, Speak publicly in front of large groups and oversee a group of twenty or more individuals on a  weekly basis"
     }
   ]
 };
@@ -94,6 +103,25 @@ var projects = {
     ]
 };
 
+//Uses jQuery plugin "Sticky" to stick the top navigation to the top of the page when scrolling down, and unsticks when scroll up
+ $(document).ready(function() {
+    $("#nav").sticky({topSpacing:0});
+ });
+
+ //Automatically scrolls to element when clicked on the top navigation
+$('a[href^="#"]').on('click', function(event) {
+
+    var target = $( $(this).attr('href') );
+
+    if( target.length ) {
+        event.preventDefault();
+        $('html, body').animate({
+            scrollTop: target.offset().top
+        }, 1000);
+    }
+
+});
+
 bio.display = function () {
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -110,7 +138,10 @@ bio.display = function () {
 
     var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
     var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-    $("#footerContacts").append(formattedMobile, formattedEmail);
+    var formattedLinkedin = HTMLlinkedIn.replace("%data%", bio.contacts.linkedin);
+    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+    var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+    $("#topContacts").append(formattedLinkedin, formattedGithub, formattedMobile, formattedTwitter, formattedEmail);
 };
 //$("#main").append(work["position"]);
 //$("#main").append(education.schools.name);
@@ -206,6 +237,6 @@ education.display();
 work.display();
 projects.display();
 
-$("#main").append(internationalizeButton);
+//$("#main").append(internationalizeButton);
 //adding the map
 $("#mapDiv").append(googleMap);

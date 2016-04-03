@@ -19,11 +19,12 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   <meta charset="utf-8">
 
   <!-- Tells the browser what the title of this page should be. -->
-  <title>Resume</title>
+  <title>Jesse Harrison</title>
 
   <!-- Load the page styles. -->
   <link href="css/style.css" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Mate+SC' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Palanquin:200' rel='stylesheet' type='text/css'>
+  <!--<link rel="stylesheet" href="css/bootstrap.css">-->
   <!--
   jQuery is a common JavaScript library for reading and making changes to the
   Document Object Model (DOM). The DOM is a tree that contains information
@@ -38,6 +39,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   you can't accomplish with vanilla (regular) JavaScript.
   -->
   <script src="js/jQuery.js"></script>
+  <script src="js/jquery.sticky.js"></script>
 
   <!-- More on helper.js in the class -->
   <script src="js/helper.js"></script>
@@ -51,7 +53,18 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   <meta name="viewport" content="width=device-width">
 </head>
 <body>
+  <div id="introContainer">
+    <h1 id="introName">jesse+harrison</h1>
+    <h2 id="introRole">front+end web developer</h2>
+    <a href="#header"><img id="scroll" src="images/mtIcon.png" alt="scroll down"></a>
+  </div>
   <div id="main">
+    <ul id="nav" class="flex-box">
+      <li><h3><a class="topMenu" href="#header">About Me</a></h3></li>
+      <li><h3><a class="topMenu" href="#workExperience">Work History</a></h3></li>
+      <li><h3><a class="topMenu" href="#projects">Projects</a></h3></li>
+      <li><h3><a class="topMenu" href="#education">Education</a></h3></li>
+     </ul>
     <!-- You'll be deleting this line in the course -->
 
     <!--
@@ -64,21 +77,20 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
       <ul id="topContacts" class="flex-box"></ul>
     </div>
     <div style="clear: both;"></div>
-    <div id="workExperience" class="gray">
-      <h2>Work Experience</h2>
+    <div id="workExperience" class="center-content">
+      <h2>Work Experience</h2><hr>
     </div>
-    <div id="projects">
-      <h2>Projects</h2>
+    <div id="projects" class="center-content">
+      <h2>Projects</h2><hr>
     </div>
-    <div id="education" class="gray">
-      <h2>Education</h2>
+    <div id="education" class="eduColor center-content">
+      <h2>Education</h2><hr>
     </div>
-    <div id="mapDiv">
+    <div id="mapDiv" class="">
       <h2>Where I've Lived and Worked</h2>
     </div>
-    <div id="lets-connect" class="dark-gray">
-      <h2 class="orange center-text">Let's Connect</h2>
-        <ul id="footerContacts" class="flex-box">
+    <div id="lets-connect" class="">
+      <ul id="footerContacts" class="flex-box">
       </ul>
     </div>
   </div>
