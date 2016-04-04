@@ -193,6 +193,9 @@ h5 {
   float: right;
 
 }
+.pad {
+  padding: 10px 5%;
+}
 
 p {
   font-size: 14px;
