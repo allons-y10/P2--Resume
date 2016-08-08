@@ -1,4 +1,4 @@
-'Use Strict';
+'use strict';
 
 var bio = {
   "name": "Jesse Harrison",
@@ -14,7 +14,7 @@ var bio = {
   "welcomeMessage": "Welcome to my site. Yes, it is all about me. Feel free to browse around the site and find out all the things you need to know to hire me. One thing to know is I love adventure. I incorporate that into my work. I'm not afraid to learn new things. Infact, I enjoy learning. I've learned a variety of skills including audio/video engineering and web site design. What do I bring to the table you ask? Well along with my positive atmosphere I bring imagination and thoughtfulness. Thanks for stopping by!",
   "age": 28,
   "skills": [
-    "Learning", "Design", "JS", "HTML & CSS", "Adaptability", "MS Suite", "Protools", "Final Cut Pro", "Avid Media Composer", "Photshop", "Illustrator", ""
+    "Learning", "Design", "JS", "HTML & CSS", "Knockout", "Adaptability", "MS Suite", "Protools", "Final Cut Pro", "Avid Media Composer", "Photshop", "Illustrator", ""
   ],
   "biopic": "images/me.jpg"
 
@@ -74,12 +74,26 @@ var projects = {
     "title": "Bebop",
     "dates": "2015",
     "description": "A Photoshop project base on the popular anime series Cowboy Bebop",
+    "url": "",
     "images": ["images/Spike.png"]
   }, {
     "title": "KLK",
     "dates": "2015",
     "description": "A Photoshop design based on the anime series Kill La Kill",
+    "url": "",
     "images": ["images/klk3.jpg"]
+  }, {
+    "name": "Arcade Clone",
+    "dates": "May 2016",
+    "description": "A clone of the classic arcade game, Frogger",
+    "url": ["http://allons-y10.github.io/P-Arcade-Game"],
+    "images": []
+  }, {
+    "name": "Website Optimization",
+    "dates": "June 2016",
+    "description": "Optimized pre-written JS code",
+    "url": ["http://allons-y10.github.io/P-WebOp"],
+    "images": []
   }]
 };
 
@@ -197,7 +211,7 @@ work.display = function() {
     employer = HTMLworkEmployer.replace("%data%", job.employer);
     title = HTMLworkTitle.replace("%data%", job.title);
     dates = HTMLworkDates.replace("%data%", job.dates);
-    description = HTMLworkDescription.replace("%data", job.description);
+    description = HTMLworkDescription.replace("%data%", job.description);
     location = HTMLworkLocation.replace("%data%", job.location);
 
     $("#workExperience").append(HTMLworkStart);
@@ -218,12 +232,26 @@ projects.display = function() {
 
     var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
     $(".project-entry:last").append(formattedTitle);
+    if (projects.projects[project].url.length > 0) {
+      for (var url in projects.projects[project].url) {
+        var formattedUrl = HTMLprojectUrl.replace("#", projects.projects[project].url[url]).replace("%data%", projects.projects[project].name);
+        $("a").filter(":contains('undefined')").remove();
+        $(".project-entry:last").append(formattedUrl);
+      }
+    };
 
     var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
     $(".project-entry:last").append(formattedDates);
 
     var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
     $(".project-entry:last").append(formattedDescription);
+
+    //if (projects.projects[project].url.length > 0) {
+      //for (var url in projects.projects[project].url) {
+       // var formattedUrl = formattedTitle.replace("#", projects.projects[project].url[url]);
+        //$(".project-entry:last").append(formattedUrl);
+      //}
+   // }
 
     if (projects.projects[project].images.length > 0) {
       for (var image in projects.projects[project].images) {
