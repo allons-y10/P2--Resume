@@ -14,9 +14,9 @@ var bio = {
   "welcomeMessage": "Welcome to my site. Yes, it is all about me. Feel free to browse around the site and find out all the things you need to know to hire me. One thing to know is I love adventure. I incorporate that into my work. I'm not afraid to learn new things. Infact, I enjoy learning. I've learned a variety of skills including audio/video engineering and web site design. What do I bring to the table you ask? Well along with my positive atmosphere I bring imagination and thoughtfulness. Thanks for stopping by!",
   "age": 28,
   "skills": [
-    "Learning", "Design", "JS", "HTML & CSS", "Knockout", "Adaptability", "MS Suite", "Protools", "Final Cut Pro", "Avid Media Composer", "Photshop", "Illustrator", ""
+    "Learning", "Design", "JS", "HTML & CSS", "Knockout", "Bootstrap", "Adaptability", "MS Suite", "Protools", "Final Cut Pro", "Avid Media Composer", "Photoshop", "Illustrator", ""
   ],
-  "biopic": "images/me.jpg"
+  "biopic": "images/me2.jpg"
 
 };
 
@@ -49,14 +49,14 @@ var education = {
     "degree": "BA",
     "dates": "2012",
     "url": "http://www.lindenwood.edu",
-    "majors": ["Communications"]
+    "major": ["Communications"]
   }, {
     "name": "Recording Connection",
     "location": "St. Louis, MO, US",
     "degree": "Certificate",
     "dates": "2009",
     "url": "http://www.recordingconnection.com",
-    "majors": ["Audio Engineering"]
+    "major": ["Audio Engineering"]
   }],
   "onlineCourses": [{
     "title": "Front-End Web Developer Nanondegree",
@@ -65,7 +65,7 @@ var education = {
     "degree": "Nanodegree",
     "dates": "2016",
     "url": "https://www.udacity.com",
-    "majors": ["Front-End Development"]
+    "major": ["Front-End Development"]
   }]
 };
 
@@ -87,13 +87,19 @@ var projects = {
     "dates": "May 2016",
     "description": "A clone of the classic arcade game, Frogger",
     "url": ["http://allons-y10.github.io/P-Arcade-Game"],
-    "images": []
+    "images": ["images/game.png"]
   }, {
     "name": "Website Optimization",
     "dates": "June 2016",
     "description": "Optimized pre-written JS code",
-    "url": ["http://allons-y10.github.io/P-WebOp"],
-    "images": []
+    "url": ["http://allons-y10.github.io/P-WebOp/views/pizza.html"],
+    "images": ["images/pizza.png"]
+  }, {
+    "name": "Static Info Website",
+    "dates": "March 2017",
+    "description": "Created a static webpage for a Cavalier Business",
+    "url": ["https://allons-y10.github.io/CavInd/"],
+    "images": ["images/cav.png"]
   }]
 };
 
@@ -186,14 +192,14 @@ education.display = function() {
   }
 
   function addOnlineCourse(course) {
-    title = HTMLonlineTitle.replace('%data%', course.title);
-    school = HTMLonlineSchool.replace('%data%', course.school);
+    title = HTMLonlineTitle.replace('%data%', course.school);
+    school = HTMLonlineSchool.replace('%data%', course.title);
     dates = HTMLonlineDates.replace('%data%', course.dates);
-    url = HTMLonlineURL.replace('%data%', course.url);
+    url = title.replace('#', course.url);
 
     $('#education').append(HTMLschoolStart);
 
-    $('.education-entry:last').append(title + school);
+    $('.education-entry:last').append(url + school);
 
     $('.education-entry:last').append(dates);
 

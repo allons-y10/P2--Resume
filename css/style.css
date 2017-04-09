@@ -269,7 +269,8 @@ a:hover {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   line-height: 30px;
 }
 
@@ -354,6 +355,15 @@ span {
   }
   #introRole {
     font-size: 40px;
+  }
+  body {
+    max-width: 1250px;
+  }
+}
+
+@media only screen and (min-width:1250px) {
+  body {
+    margin: auto;
   }
 }
 @media only screen and (max-width: 500px) {
